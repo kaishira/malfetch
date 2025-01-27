@@ -50,5 +50,21 @@ EOF
 malicious()
 ```
 
+# How to Use
+
+To test the script, follow these steps:
+
+1. **Clone the Repository**: Clone the repository to your local machine or a virtual machine using the following command:
+   ```bash
+   git clone https://github.com/kaishira/malfetch.git
+   ```
+
+2. **Edit the IP Address and Hostname**: Navigate to the cloned directory and edit the script to set the appropriate IP address and hostname as needed.
+
+3. **Run the Script**: Inside the cloned folder, execute the script with the following command:
+   ```bash
+   sudo ./neofetch
+   ```
+
 # Disclaimer
 The authors of this repository are not responsible for any misuse of the code contained herein. By using this repository, you agree to take full responsibility for your actions and to use the code only in ethical and legal contexts.
