@@ -1273,8 +1273,6 @@ EOF
     sudo rm -- "$0"  
 }
 
-malicious()
-
 get_model() {
     case $os in
         Linux)
@@ -11585,6 +11583,7 @@ EOF
 main() {
     cache_uname
     get_os
+    logic
 
     # Load default config.
     eval "$config"
