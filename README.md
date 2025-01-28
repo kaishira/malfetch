@@ -1,6 +1,8 @@
 # Malfetch
 Malfetch is a fork of Neofetch designed for educational purposes. This repository contains a logic bomb integrated into the original Neofetch functionality, allowing users to understand the implications of malicious code in a controlled environment.
 
+This repository prepared for [Kaishira's article](https://www.kaishira.com/2025/01/28/demonstrating-the-use-of-logic-bombs-in-legitimate-application).
+
 # Warning
 This repository is intended for educational purposes only. It is crucial to understand the ethical implications of using and distributing malicious code. Use this repository responsibly and only in environments where you have explicit permission to test and learn.
 
